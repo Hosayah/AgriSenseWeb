@@ -8,6 +8,16 @@ const api = axios.create({
     'ngrok-skip-browser-warning': 'true'
   }
 });
+
+// Helper to attach token for mobile
+export const setAuthToken = (token) => {
+  if (token) {
+    api.defaults.headers['Authorization'] = `Bearer ${token}`;
+  } else {
+    delete api.defaults.headers['Authorization'];
+  }
+};
+
 export const registerApi = (payload) =>
   api.post('/register', payload);
 

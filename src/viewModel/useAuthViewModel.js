@@ -36,9 +36,15 @@ export function useAuthViewModel() {
       setLoading(true);
       setError(null);
 
-      await loginApi(email, password);
-      const res = await meApi();
-      setUser(res.data.user);
+      const res = await loginApi(email, password);
+
+      // If mobile, grab the access token from JSON and set it for future requests
+      if (res.data.access_token) {
+        setAuthToken(res.data.access_token);
+      }
+
+      const meRes = await meApi();
+      setUser(meRes.data.user);
 
       return { success: true };
     } catch (err) {
@@ -55,6 +61,7 @@ export function useAuthViewModel() {
       setLoading(false);
     }
   };
+
 
 
   const loadUser = async () => {
