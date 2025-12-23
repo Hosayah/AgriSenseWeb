@@ -1,6 +1,6 @@
 // features/auth/context/AuthContext.jsx
 import { createContext, useContext, useEffect } from 'react';
-import { useAuthViewModel } from '@viewmodel/useAuthViewModel';
+import { useAuthViewModel } from '@viewModel/useAuthViewModel';
 
 const AuthContext = createContext(null);
 
