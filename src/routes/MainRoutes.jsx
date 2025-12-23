@@ -14,8 +14,6 @@ const SamplePage = Loadable(lazy(() => import('views/farmOwner/sample-page')));
 const SamplePage1 = Loadable(lazy(() => import('views/admin/sample-page')));
 const LoginPage = Loadable(lazy(() => import('views/auth/Login')));
 
-// This should be JWT token stored in HTTP only cookie
-var role = 'farmOwner'; // This should come from user auth context
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -28,6 +26,13 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
+function RoleBasedDashboard() {
+  const { user } = useAuth();
+
+  if (user?.role === "admin") return <AdminDashboard />;
+  return <FarmOwnerDashboard />;
+}
+
 const MainRoutes = {
   path: '/',
   element: <ProtectedRoute>
@@ -36,7 +41,7 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: role ? <AdminDashboard/>:<FarmOwnerDashboard/>
+      element: <RoleBasedDashboard/>
     },
     {
       path: 'farmOwner',
