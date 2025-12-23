@@ -32,13 +32,16 @@ export default defineConfig(({ mode }) => {
 
     resolve: {
       alias: {
+        '@': path.resolve(__dirname, 'src'),                 // optional general alias
+        '@viewmodel': path.resolve(__dirname, 'src/viewmodel'), // NEW alias for your viewmodel folder
         '@ant-design/icons': path.resolve(
           __dirname,
           'node_modules/@ant-design/icons'
-        )
+        ),
         // Add more aliases as needed
       }
     },
+
 
     plugins: [
       react(),
