@@ -19,19 +19,22 @@ const LoginPage = Loadable(lazy(() => import('views/auth/Login')));
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth();
+  console.log("ProtectedRoute user:", user); // <- check the full user object
+
   if (!user) {
-    return <LoginPage />
+    return <LoginPage />;
   }
-  role = user?.role === 'admin' ? 'admin' : 'farmOwner'
   return children;
 }
 
 function RoleBasedDashboard() {
   const { user } = useAuth();
+  console.log("RoleBasedDashboard user role:", user?.role); // <- check role
 
   if (user?.role === "admin") return <AdminDashboard />;
   return <FarmOwnerDashboard />;
 }
+
 
 const MainRoutes = {
   path: '/',
@@ -49,12 +52,7 @@ const MainRoutes = {
         {
           path: 'dashboard',
           element: <FarmOwnerDashboard/>
-        }
-      ]
-    },
-    {
-      path: 'farmOwner',
-      children: [
+        },
         {
           path: 'sample-page',
           element: <SamplePage />
@@ -67,12 +65,7 @@ const MainRoutes = {
         {
           path: 'dashboard',
           element: <AdminDashboard />
-        }
-      ]
-    },
-    {
-      path: 'admin',
-      children: [
+        },
         {
           path: 'sample-page',
           element: <SamplePage1 />
