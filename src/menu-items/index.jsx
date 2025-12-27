@@ -9,7 +9,6 @@ import { Link as RouterLink, useNavigate  } from 'react-router-dom';
 
 function RoleBasedMenu() {
   const { user } = useAuth();
-  console.log("RoleBasedMenu user role:", user?.role); // <- check role
 
   if(!user) return pages; 
   if (user?.role === "admin") return admin;
