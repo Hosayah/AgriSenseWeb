@@ -14,7 +14,7 @@ function RoleBasedMenu() {
   return farmOwner;
 }
 
-const menu = RoleBasedMenu();
+const menu = RoleBasedMenu() ? RoleBasedMenu() : farmOwner;
 
 const menuItems = {
   items: [menu, pages]
