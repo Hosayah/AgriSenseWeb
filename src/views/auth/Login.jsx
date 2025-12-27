@@ -23,7 +23,7 @@ export default function Login() {
         </Grid>
         <Grid size={12}>
           <AuthLogin />
-          <Stack direction="row" sx={{ alignItems: 'baseline', justifyContent: 'center', mt: { xs: -0.5, sm: 2 } }}>
+          <Stack direction="row" sx={{ alignItems: 'baseline', justifyContent: 'center', mt: { xs: 1, sm: 2 } }}>
             <Typography component={Link} to={'/register'} variant="body1" sx={{ textDecoration: 'none' }} color="primary">
             Don&apos;t have an account?
             </Typography>

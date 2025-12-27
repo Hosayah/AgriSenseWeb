@@ -22,7 +22,7 @@ export default function Register() {
         </Grid>
         <Grid size={12}>
           <FirebaseRegister />
-          <Stack direction="row" sx={{ alignItems: 'baseline', justifyContent: 'center', mt: { xs: -0.5, sm: 2 } }}>
+          <Stack direction="row" sx={{ alignItems: 'baseline', justifyContent: 'center', mt: { xs: 1, sm: 2 } }}>
             <Typography component={Link} to="/login" variant="body1" sx={{ textDecoration: 'none' }} color="primary">
               Already have an account?
             </Typography>
