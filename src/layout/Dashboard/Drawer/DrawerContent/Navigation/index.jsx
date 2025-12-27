@@ -4,12 +4,20 @@ import Box from '@mui/material/Box';
 
 // project import
 import NavGroup from './NavGroup';
-import menuItem from 'menu-items';
+import { getMenuItems } from 'menu-items';
+import { useAuth } from 'contexts/AuthContext';
 
 // ==============================|| DRAWER CONTENT - NAVIGATION ||============================== //
 
 export default function Navigation() {
-  const navGroups = menuItem.items.map((item) => {
+  const { user } = useAuth();
+
+  // Prevent rendering before auth is ready
+  if (!user) return null;
+
+  const menuItems = getMenuItems(user.role);
+
+  const navGroups = menuItems.items.map((item) => {
     switch (item.type) {
       case 'group':
         return <NavGroup key={item.id} item={item} />;
