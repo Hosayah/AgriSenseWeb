@@ -36,6 +36,13 @@ import avatar2 from 'assets/images/users/avatar-2.png';
 import avatar3 from 'assets/images/users/avatar-3.png';
 import avatar4 from 'assets/images/users/avatar-4.png';
 
+// viewModel
+import { useCropAnalytics } from 'features/crop-trend/viewModel/useCropAnalytics';
+const { summary, trend, risk, loading } = useCropAnalytics({
+  horizon: 4,
+  province: 'ALL',
+  crops: ['Palay', 'Irrigated Palay']
+});
 
 // avatar style
 const avatarSX = {
@@ -80,21 +87,15 @@ export default function FarmOwnerDashboard() {
       <Grid sx={{ mb: -2.25 }} size={12}>
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
-      <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-        <AnalyticEcommerce title="Total Palay" count="4,42,236" percentage={59.3} extra="35,000" />
-      </Grid>
-      <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-        <AnalyticEcommerce title="Total Corns" count="78,250" percentage={70.5} extra="8,900" />
-      </Grid>
-      <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-        <AnalyticEcommerce title="Total Fruits" count="18,800" percentage={27.4} isLoss color="warning" extra="1,943" />
-      </Grid>
-      <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-        <AnalyticEcommerce title="Total Vegetables" count="35,078" percentage={27.4} isLoss color="warning" extra="20,395" />
-      </Grid>
+      {summary.map((item) => (
+        <Grid key={item.metric} size={{ xs: 12, sm: 6, lg: 3 }}>
+          <AnalyticEcommerce title={item.label} count={item.value.toLocaleString()} extra={item.unit} />
+        </Grid>
+      ))}
+
       <Grid sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} size={{ md: 8 }} />
       {/* row 2 */}
-      <Grid size={{ xs: 12}}>
+      <Grid size={{ xs: 12 }}>
         <CropTrendCard />
       </Grid>
       {/* row 3 */}
