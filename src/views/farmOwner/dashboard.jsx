@@ -61,7 +61,7 @@ const actionSX = {
 export default function FarmOwnerDashboard() {
   const { summary, trend, risk, loading } = useCropAnalytics({
     horizon: 4,
-    province: 'ALL',
+    province: 'Pangasinan',
     crops: ['Palay', 'Irrigated Palay']
   });
   const [orderMenuAnchor, setOrderMenuAnchor] = useState(null);
