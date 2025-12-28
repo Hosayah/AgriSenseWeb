@@ -31,7 +31,7 @@ export default function CropTrendCard({ labels, series }) {
 
       <MainCard content={false} sx={{ mt: 1.5 }}>
         <Box sx={{ pt: 1, pr: 2 }}>
-          <IncomeAreaChart labels={labels} series={series} />
+          <CropTrendChart labels={labels} series={series} />
         </Box>
       </MainCard>
     </>
