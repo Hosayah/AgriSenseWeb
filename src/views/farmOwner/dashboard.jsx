@@ -39,8 +39,6 @@ import avatar4 from 'assets/images/users/avatar-4.png';
 // viewModel
 import { useCropAnalytics } from 'viewModel/useCropAnalytics';
 
-
-
 // avatar style
 const avatarSX = {
   width: 36,
@@ -90,16 +88,14 @@ export default function FarmOwnerDashboard() {
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
       {summary.map((item) => (
-        <Grid key={item.metric} size={{ xs: 12, sm: 6, lg: 3 }}>
+        <Grid key={item.metric} size={{ xs: 12, sm: 6, lg: 4 }}>
           <AnalyticEcommerce title={item.label} count={item.value.toLocaleString()} extra={item.unit} />
         </Grid>
       ))}
 
       <Grid sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} size={{ md: 8 }} />
       {/* row 2 */}
-      <Grid size={{ xs: 12 }}>
-        <CropTrendCard />
-      </Grid>
+      <Grid size={{ xs: 12 }}>{trend && <CropTrendCard labels={trend.labels} series={trend.series} />}</Grid>
       {/* row 3 */}
       <Grid size={{ xs: 12, md: 7, lg: 8 }}>
         <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
