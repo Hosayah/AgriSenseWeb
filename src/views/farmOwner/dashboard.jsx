@@ -37,7 +37,8 @@ import avatar3 from 'assets/images/users/avatar-3.png';
 import avatar4 from 'assets/images/users/avatar-4.png';
 
 // viewModel
-import { useCropAnalytics } from 'features/crop-trend/viewModel/useCropAnalytics';
+import { useCropAnalytics } from 'viewModel/useCropAnalytics';
+
 const { summary, trend, risk, loading } = useCropAnalytics({
   horizon: 4,
   province: 'ALL',
