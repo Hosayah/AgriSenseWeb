@@ -35,27 +35,30 @@ function Legend({ items, onToggle }) {
 export default function CropTrendChart({ labels, series }) {
   const theme = useTheme();
 
-  const [visibility, setVisibility] = useState(
-    Object.fromEntries(series.map((s) => [s.label, true]))
-  );
+  const [visibility, setVisibility] = useState(Object.fromEntries(series.map((s) => [s.label, true])));
 
   const toggleVisibility = (label) => {
     setVisibility((prev) => ({ ...prev, [label]: !prev[label] }));
   };
 
-  const chartSeries = series
-    .filter((s) => visibility[s.label])
-    .map((s, idx) => ({
+  const chartSeries = series.map((s, idx) => {
+    const color = idx === 0 ? theme.vars.palette.primary.main : theme.vars.palette.secondary.main;
+
+    return {
       type: 'line',
       data: s.data,
       label: s.label,
       showMark: false,
       area: true,
       id: s.id,
-      color: theme.vars.palette.primary[idx * 100 + 400] || theme.vars.palette.primary.main,
-      stroke: theme.vars.palette.primary.main,
-      strokeWidth: 2
-    }));
+      color,
+      stroke: color,
+      strokeWidth: idx === 0 ? 3 : 2,
+      areaStyle: {
+        opacity: idx === 0 ? 0.35 : 0.2
+      }
+    };
+  });
 
   return (
     <>
@@ -67,20 +70,7 @@ export default function CropTrendChart({ labels, series }) {
         height={450}
         margin={{ top: 40, bottom: 0, right: 20, left: 5 }}
         series={chartSeries}
-        sx={{
-          '& .MuiChartsGrid-line': {
-            strokeDasharray: '4 4',
-            stroke: theme.vars.palette.divider
-          }
-        }}
-      >
-        <defs>
-          <linearGradient id="gradientPrimary" gradientTransform="rotate(90)">
-            <stop offset="10%" stopColor={withAlpha(theme.vars.palette.primary.main, 0.4)} />
-            <stop offset="90%" stopColor={withAlpha(theme.vars.palette.background.default, 0.4)} />
-          </linearGradient>
-        </defs>
-      </LineChart>
+      />
 
       <Legend
         items={series.map((s, idx) => ({
