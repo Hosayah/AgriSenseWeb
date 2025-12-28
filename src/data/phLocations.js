@@ -2,52 +2,68 @@
 export const PH_REGIONS = {
   CAR: {
     label: 'CORDILLERA ADMINISTRATIVE REGION (CAR)',
-    provinces: ['Abra', 'Apayao', 'Benguet', 'Ifugao', 'Kalinga', 'Mountain Province']
+    provinces: ['Benguet']
   },
+
   'REGION I': {
     label: 'REGION I (ILOCOS REGION)',
     provinces: ['Ilocos Norte', 'Ilocos Sur', 'La Union', 'Pangasinan']
   },
+
   'REGION II': {
     label: 'REGION II (CAGAYAN VALLEY)',
-    provinces: ['Batanes', 'Cagayan', 'Isabela', 'Nueva Vizcaya', 'Quirino']
+    provinces: ['Isabela']
   },
+
   'REGION III': {
     label: 'REGION III (CENTRAL LUZON)',
-    provinces: ['Aurora', 'Bataan', 'Bulacan', 'Nueva Ecija', 'Pampanga', 'Tarlac', 'Zambales']
+    provinces: ['Bataan', 'Bulacan', 'Nueva Ecija', 'Pampanga', 'Zambales']
   },
+
   'REGION IV-A': {
     label: 'REGION IV-A (CALABARZON)',
     provinces: ['Batangas', 'Cavite', 'Laguna', 'Quezon', 'Rizal']
   },
+
   MIMAROPA: {
     label: 'MIMAROPA REGION',
-    provinces: ['Marinduque', 'Occidental Mindoro', 'Oriental Mindoro', 'Palawan', 'Romblon']
+    provinces: ['Oriental Mindoro', 'Palawan']
   },
+
   'REGION V': {
     label: 'REGION V (BICOL REGION)',
-    provinces: ['Albay', 'Camarines Norte', 'Camarines Sur', 'Catanduanes', 'Masbate', 'Sorsogon']
+    provinces: ['Albay', 'Camarines Norte', 'Camarines Sur', 'Masbate']
   },
+
   'REGION VI': {
     label: 'REGION VI (WESTERN VISAYAS)',
-    provinces: ['Aklan', 'Antique', 'Capiz', 'Guimaras', 'Iloilo', 'Negros Occidental']
+    provinces: ['Capiz', 'Iloilo', 'Negros Occidental']
   },
+
   'REGION VII': {
     label: 'REGION VII (CENTRAL VISAYAS)',
-    provinces: ['Bohol', 'Cebu', 'Negros Oriental', 'Siquijor']
+    provinces: ['Cebu', 'Negros Oriental']
   },
+
   'REGION VIII': {
     label: 'REGION VIII (EASTERN VISAYAS)',
-    provinces: ['Biliran', 'Eastern Samar', 'Leyte', 'Northern Samar', 'Samar', 'Southern Leyte']
+    provinces: ['Eastern Samar', 'Leyte', 'Samar', 'Southern Leyte']
   },
+
   'REGION IX': {
     label: 'REGION IX (ZAMBOANGA PENINSULA)',
-    provinces: ['Zamboanga del Norte', 'Zamboanga del Sur', 'Zamboanga Sibugay', 'Zamboanga City']
+    provinces: [
+      'Zamboanga del Norte',
+      'Zamboanga del Sur',
+      'Zamboanga Sibugay'
+    ]
   },
+
   'REGION X': {
     label: 'REGION X (NORTHERN MINDANAO)',
-    provinces: ['Bukidnon', 'Camiguin', 'Lanao del Norte', 'Misamis Occidental', 'Misamis Oriental']
+    provinces: ['Bukidnon', 'Lanao del Norte', 'Misamis Occidental', 'Misamis Oriental']
   },
+
   'REGION XI': {
     label: 'REGION XI (DAVAO REGION)',
     provinces: [
@@ -56,26 +72,27 @@ export const PH_REGIONS = {
       'Davao del Sur',
       'Davao Occidental',
       'Davao Oriental',
-      'City of Davao'
+      'Davao'
     ]
   },
+
   'REGION XII': {
     label: 'REGION XII (SOCCSKSARGEN)',
-    provinces: ['Cotabato', 'Sarangani', 'South Cotabato', 'Sultan Kudarat']
+    provinces: ['Cotabato', 'North Cotabato', 'South Cotabato']
   },
+
   'REGION XIII': {
     label: 'REGION XIII (CARAGA)',
-    provinces: ['Agusan del Norte', 'Agusan del Sur', 'Dinagat Islands', 'Surigao del Norte', 'Surigao del Sur']
+    provinces: ['Agusan del Norte', 'Agusan del Sur', 'Surigao del Sur']
   },
+
   BARMM: {
     label: 'BARMM',
     provinces: [
       'Basilan',
       'Lanao del Sur',
       'Maguindanao del Norte',
-      'Maguindanao del Sur',
-      'Sulu',
-      'Tawi-tawi'
+      'Maguindanao del Sur'
     ]
   }
 };

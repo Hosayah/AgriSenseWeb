@@ -39,6 +39,9 @@ import avatar4 from 'assets/images/users/avatar-4.png';
 // viewModel
 import { useCropAnalytics } from 'viewModel/useCropAnalytics';
 
+// datas
+import { PROVINCES } from 'data/provinces';
+
 // avatar style
 const avatarSX = {
   width: 36,
@@ -64,6 +67,8 @@ export default function FarmOwnerDashboard() {
     province: 'Pangasinan',
     crops: ['Palay', 'Irrigated Palay']
   });
+  const [province, setProvince] = useState('ALL');
+
   const [orderMenuAnchor, setOrderMenuAnchor] = useState(null);
   const [analyticsMenuAnchor, setAnalyticsMenuAnchor] = useState(null);
 
@@ -87,6 +92,21 @@ export default function FarmOwnerDashboard() {
       <Grid sx={{ mb: -2.25 }} size={12}>
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
+      <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
+        <Typography variant="h5">Dashboard</Typography>
+
+        <Stack direction="row" spacing={1} alignItems="center">
+          <InputLabel>Province:</InputLabel>
+          <Select size="small" value={province} onChange={(e) => setProvince(e.target.value)} sx={{ minWidth: 200 }}>
+            {PROVINCES.map((prov) => (
+              <MenuItem key={prov} value={prov}>
+                {prov}
+              </MenuItem>
+            ))}
+          </Select>
+        </Stack>
+      </Grid>
+
       {summary.map((item) => (
         <Grid key={item.metric} size={{ xs: 12, sm: 6, lg: 4 }}>
           <AnalyticEcommerce title={item.label} count={item.value.toLocaleString()} extra={item.unit} />
