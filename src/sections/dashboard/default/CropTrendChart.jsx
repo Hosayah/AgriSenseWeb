@@ -42,7 +42,7 @@ export default function CropTrendChart({ labels, series }) {
   };
 
   const chartSeries = series.map((s, idx) => {
-    const color = idx === 0 ? theme.vars.palette.primary.main : theme.vars.palette.secondary.main;
+    const color = idx === 0 ? theme.vars.palette.primary.main : theme.vars.palette.primary.light;
 
     return {
       type: 'line',
