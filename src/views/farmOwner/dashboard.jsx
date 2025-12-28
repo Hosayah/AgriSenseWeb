@@ -39,11 +39,7 @@ import avatar4 from 'assets/images/users/avatar-4.png';
 // viewModel
 import { useCropAnalytics } from 'viewModel/useCropAnalytics';
 
-const { summary, trend, risk, loading } = useCropAnalytics({
-  horizon: 4,
-  province: 'ALL',
-  crops: ['Palay', 'Irrigated Palay']
-});
+
 
 // avatar style
 const avatarSX = {
@@ -65,6 +61,11 @@ const actionSX = {
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
 export default function FarmOwnerDashboard() {
+  const { summary, trend, risk, loading } = useCropAnalytics({
+    horizon: 4,
+    province: 'ALL',
+    crops: ['Palay', 'Irrigated Palay']
+  });
   const [orderMenuAnchor, setOrderMenuAnchor] = useState(null);
   const [analyticsMenuAnchor, setAnalyticsMenuAnchor] = useState(null);
 
